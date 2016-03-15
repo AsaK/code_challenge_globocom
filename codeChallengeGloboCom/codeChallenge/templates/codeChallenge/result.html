@@ -13,17 +13,13 @@
                                 <img id="imgParedao" src="{% static 'codeChallenge/img/paredao.png' %}"> <h3 id="quemDeveSer">Quem deve ser <h3 id="eliminado">eliminado?</h3></h3>
                             </header>
                             <div class="modal-body">
-                                <h3>Parabéns! Seu voto para {{ participant.name }} foi enviado com sucesso.</h3>
+                                <h3>Parabéns! Seu voto para {{ participant.name }} foi enviado com sucesso. </h3>
                                 <div class="participante">                                
-                                    <div class="thumbnail" id="participanteUm" data-id="1">
-                                        <img id="imgParticipanteUm" src="{% static 'codeChallenge/img/participanteUm.png' %}">
-                                    </div>                                    
+                                    <img id="imgParticipanteUm" src="{% static 'codeChallenge/img/participanteUm.png' %}">
                                 </div>
                                 <canvas id="resultChart" width="250" height="250"></canvas>
-                                <div class="participante">                                
-                                    <div class="thumbnail" id="participanteDois" data-id="2">
-                                        <img id="imgParticipanteDois" src="{% static 'codeChallenge/img/participanteDois.png' %}">
-                                    </div>                                
+                                <div class="participante">
+                                    <img id="imgParticipanteDois" src="{% static 'codeChallenge/img/participanteDois.png' %}">
                                 </div>
                             </div>                  
                     </div>
@@ -34,5 +30,24 @@
 {% endblock %}
 {% block extraScripts %}
     <script src="{% static 'codeChallenge/chart/Chart.min.js' %}"></script>
-    <script src="{% static 'codeChallenge/js/result.js' %}"></script>
+    <script>
+        var pieData = [
+            {% for votoParticipante in votosParticipantes %}
+                {
+                    value: {{votoParticipante}},
+                    label: {{ votoParticipante}} + '%',
+                },
+            {% endfor %}
+        ];
+        // pie chart options
+        var pieOptions = {
+            segmentShowStroke : false,
+            animateScale : true,
+            percentageInnerCutout : 70,
+        }
+        // get pie chart canvas
+        var countries= document.getElementById("resultChart").getContext("2d");
+        // draw pie chart
+        new Chart(countries).Doughnut(pieData, pieOptions);
+    </script>
 {% endblock %}
