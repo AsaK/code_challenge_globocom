@@ -1,23 +1,23 @@
-# Di·rio de bordo - Desenvolvimento
+# Di√°rio de bordo - Desenvolvimento
 =====================
 # 14/03/2016 - 19:00 - 00:18
-	Boa noite, hoje comecei o desenvolvimento pela criaÁ„o do projeto, optei utilizar o 
-Python com o Framework Django pois È pra mim um ambiente mais familiar, decidi alÈm de configurar o b·sico 
-iniciar pelos templates contendo a maioria da parte visual da aplicaÁ„o, fiz um commit inicial no gitHub, 
-implementei um prototipo, para testar, foi quando lendo novamente os requisitos percebi a necessidade de 
-dividir ainda mais os modelos, para poder obter os dados necess·rios para gerar informaÁıes na aplicaÁ„o, 
+	Boa noite, hoje comecei o desenvolvimento pela cria√ß√£o do projeto, optei utilizar o 
+	Python com o Framework Django pois √© pra mim um ambiente mais familiar, decidi al√©m de configurar o b√°sico 
+	iniciar pelos templates contendo a maioria da parte visual da aplica√ß√£o, fiz um commit inicial no gitHub, 
+	implementei um prototipo, para testar, foi quando lendo novamente os requisitos percebi a necessidade de 
+	dividir ainda mais os modelos, para poder obter os dados necess√°rios para gerar informa√ß√µes na aplica√ß√£o, 
 
-Por enquanto estou utilizando o SQLite pelo fato de n„o haver necessidade de nada alÈm de um banco para
-armazenamento dos dados, porÈm possÌvelmente utilizarei o postgresSQL, optei em utilizar o GloboCom Bootstrap
-que est· disponÌvel no gitHub(http://globocom.github.io/bootstrap/) para auxiliar na criaÁ„o do template,
-utilizei tambÈm a biblioteca JQuery, por enquanto sÛ adicionei estas por n„o haver necessidades atÈ ent„o de 
-uma outra, estou analisando se utilizarei a chart.js(http://www.chartjs.org/) para fazer o grafico do resultado.
+	Por enquanto estou utilizando o SQLite pelo fato de n√£o haver necessidade de nada al√©m de um banco para
+	armazenamento dos dados, por√©m poss√≠velmente utilizarei o postgresSQL, optei em utilizar o GloboCom Bootstrap
+	que est√° dispon√≠vel no gitHub(http://globocom.github.io/bootstrap/) para auxiliar na cria√ß√£o do template,
+	utilizei tamb√©m a biblioteca JQuery, por enquanto s√≥ adicionei estas por n√£o haver necessidades at√© ent√£o de 
+	uma outra, estou analisando se utilizarei a chart.js(http://www.chartjs.org/) para fazer o grafico do resultado.
 
-Finalizei alguns ajustes nos modelos para se adequar nas regras de negÛcio, logo em seguida fiz algumas alteraÁıes
-na View VoteView, agora os dados que s„o necess·rios para gerar relatÛrios para informar a quantidade de votos totais,
-por hor·rio e por participante, por hoje È sÛ, mas amanh„ retornaremos com o desenvolvimento da P·gina de resultado apÛs o voto,
-onde implementarei o chart.js junto com o que vai resultar da requisiÁ„o POST, logo apÛs, vou implementar relatÛrios para a equipe
-de produÁ„o saber detalhadamente sobre os votos, apÛs isso iniciarei os testes mais robustos e ajustes finos no layout.
+	Finalizei alguns ajustes nos modelos para se adequar nas regras de neg√≥cio, logo em seguida fiz algumas altera√ß√µes
+	na View VoteView, agora os dados que s√£o necess√°rios para gerar relat√≥rios para informar a quantidade de votos totais,
+	por hor√°rio e por participante, por hoje √© s√≥, mas amanh√£ retornaremos com o desenvolvimento da P√°gina de resultado ap√≥s 	o voto,
+	onde implementarei o chart.js junto com o que vai resultar da requisi√ß√£o POST, logo ap√≥s, vou implementar relat√≥rios para 	a equipe
+	de produ√ß√£o saber detalhadamente sobre os votos, ap√≥s isso iniciarei os testes mais robustos e ajustes finos no layout.
 
 
 
