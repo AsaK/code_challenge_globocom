@@ -18,7 +18,8 @@
                                     <div class="thumbnail" id="participanteUm" data-id="1">
                                         <img id="imgParticipanteUm" src="{% static 'codeChallenge/img/participanteUm.png' %}">
                                     </div>                                    
-                                </div>                            
+                                </div>
+                                <canvas id="resultChart" width="250" height="250"></canvas>
                                 <div class="participante">                                
                                     <div class="thumbnail" id="participanteDois" data-id="2">
                                         <img id="imgParticipanteDois" src="{% static 'codeChallenge/img/participanteDois.png' %}">
@@ -33,5 +34,5 @@
 {% endblock %}
 {% block extraScripts %}
     <script src="{% static 'codeChallenge/chart/Chart.min.js' %}"></script>
-    <script src="{% static 'codeChallenge/js/result.js' %}"
+    <script src="{% static 'codeChallenge/js/result.js' %}"></script>
 {% endblock %}

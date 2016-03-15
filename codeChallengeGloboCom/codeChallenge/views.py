@@ -22,5 +22,6 @@ class VoteView(View):
             return render(request, 'result.html', {'participant': participant})        
         else:
             return render(request, 'index.html')
+
     def get(self, request):
         return render(request, 'index.html')
