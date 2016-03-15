@@ -1,0 +1,35 @@
+#imgParedao {
+    display: inline-block;
+}
+#quemDeveSer {
+    display: inline-block;
+    font-weight: lighter;
+    padding-left: 10px;
+}
+#eliminado {
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 10px;
+}
+.caption {
+    text-align: center;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.participante {
+    display: inline-block;
+    text-align: justify;
+    margin: 3px;
+}
+.participanteDesc {
+    width: 300px
+}
+.container {
+    width: 670px;
+}

@@ -19,7 +19,8 @@ class VoteView(View):
         except Participant.DoesNotExist:
             participant = None
         if participant is not None:
-            return HttpResponse("Você votou em " + participant.name + " para sair do paredão")
+            return render(request, 'result.html', {'participant': participant})        
         else:
-            return HttpResponse("Você votou no participante " + postData)
-
+            return render(request, 'index.html')
+    def get(self, request):
+        return render(request, 'index.html')
