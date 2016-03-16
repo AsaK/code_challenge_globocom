@@ -19,7 +19,7 @@
 	onde implementarei o chart.js junto com o que vai resultar da requisição POST, logo após, vou implementar relatórios para 	a equipe
 	de produção saber detalhadamente sobre os votos, após isso iniciarei os testes mais robustos e ajustes finos no layout.
 =====================
-# 14/03/2016 - 09:00 - 
+# 14/03/2016 - 09:00 -  (Next Day)01:02
 	Bom dia, hoje iniciei criando uma página do resultado da votação, resultando o objeto do participante,
 	iniciei a implementação do charts.js para fazer o gráfico de resultado de votação, e fiz alguns ajustes no repositório
 	adicionado um gitIgnore para remover os arquivos de configurações da IDE, também o arquivo do SQLite, após isso, irei desenvolver
@@ -35,6 +35,12 @@
 	verificar como está, estou pensando se tiver problemas futuros com isso, implementar os métodos com ThreadPools ou utilizando coroutines Asyncio, ainda não sei.
 	Estou um pouco preocupado com a automação de Deploy, estou planejando/estudando utilizar o Fabric(http://www.fabfile.org/), até agora não encherguei alguma restrição
 	mas só quando implementar de fato, saberei.
+	
+	Estive pensando, e com dúvidas se deveria ser dynamico a criação dos participantes, mas como foi enviada apenas duas sprite e o layout seguido, tomei em consideração
+	que seria apenas estes participantes, porém enviarei um e-mail para confirmar, corretamente.
+	Iniciei o desenvolvimento da parte de visualização da equipe de produção, criarei um link com controle de acesso, com login e senha,  para verificar alguns reports,
+	conforme solicitado nos requisitos, bom agora foi criado um formulário de autenticação, com algumas validações, criando uma sessão para quem deseja verificar os relatórios de votos,
+	estou implementando o Django Messages Framewok, para responder as mensagens de erros na autenticação do form.
 
 
 

@@ -1,10 +1,31 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from django.views.generic import TemplateView
+from django.shortcuts import render
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import TemplateView, FormView
 from codeChallenge.models import Participant, Vote
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 import datetime, math
 # Create your views here.
 
+
+class LoginView(FormView):
+    template_name = 'reports_login.html'
+    form_class = AuthenticationForm
+    success_url = reverse_lazy('reports')
+
+    def form_valid(self, form):
+        username = form['username']
+        password = form['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(self.request, user)
+                return super(LoginView, self).form_valid(form)
+            else:
+                messages.error(self.request, 'Não foi possível autenticar as credênciais')
+                render(self.request, 'reports_login.html')
+                
 
 class VoteView(TemplateView):
     template_name = ''

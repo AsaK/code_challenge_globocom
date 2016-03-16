@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block ExtraHead %}
+    <link rel="stylesheet" href="{% static 'codeChallenge/css/reports_login.css' %}">
+{% endblock %}
+{% block Conteudo %}
+<div class="container">
+    <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="modal modal-backdrop" style="height: 220px; width: 280px;">
+			  	<div class="popoverr" style="text-align: center;">
+			    	<h3 class="popover-title">Autenticação</h3>
+			 	</div>
+			  	<div class="popover-content" style="text-align: center;">
+                    {% if messages %}
+                    <ul class="messagelist">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+			    	<form method="POST" action="{% url 'logar' %}" accept-charset="UTF-8" role="form">
+                        {% csrf_token %}
+                    <fieldset>
+			    	  	<div class="">
+			    		    <input class="form-actions" placeholder="Usuário" name="user" type="text">
+			    		</div>
+			    		<div class="form-row">
+			    			<input class="form-actions" placeholder="Senha" name="password" type="password" value="">
+			    		</div>
+			    		<input class="btn btn-primary btn-large btn-block" type="submit" value="Autenticar">
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
