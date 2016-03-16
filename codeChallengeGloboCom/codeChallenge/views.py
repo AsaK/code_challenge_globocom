@@ -25,7 +25,7 @@ class LoginView(FormView):
             else:
                 messages.error(self.request, 'Não foi possível autenticar as credênciais')
                 render(self.request, 'reports_login.html')
-                
+
 
 class VoteView(TemplateView):
     template_name = ''

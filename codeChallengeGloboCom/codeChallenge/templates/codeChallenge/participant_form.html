@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block Conteudo %}
+    <div class="page-header">
+        <h1> Formulário de entrada de dados <small>Participante</small></h1>
+    </div>
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group {% if field.erros %}has-error{% endif %}">
+                <label class="control-label" for="{{ form.auto_id }}">{{ field.label_tag }}</label>
+                    {{ field }}
+                    {% if field.erros %}
+                        <span class="help-block"> {{ field.erros|join:"," }}</span>
+                    {% endif %}
+                    {% if field.help_text %}
+                        <p class="help-tooltip">{{ field.help_text }}</p>
+                    {% endif %}
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <input type="submit"  class="btn btn-primary" value="Submit" />
+        </div>
+    </form>
+{% endblock %}
