@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block Title %} {% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+      {% block ExtraHead %}
+
+      {% endblock %}
+  </head>
+  <body>
+    <!-- Conteudo -->
+    {% block Conteudo %}
+
+    {% endblock Conteudo %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+    {% block extraScripts %}
+
+    {% endblock %}
+  </body>
+</html>

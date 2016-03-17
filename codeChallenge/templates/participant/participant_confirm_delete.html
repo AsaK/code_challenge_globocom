@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block Title %}Big Brother Brasil - Participantes{% endblock %}
+{% block Conteudo %}
+    <div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1> Formulário de entrada de dados <small>Paredão</small></h1>
+			</div>
+			<div class="panel-body">
+                <form method="post">{% csrf_token %}
+                    <h3> Você tem certeza que deseja deletar: <strong>"{{ object }}"</strong> ?</h3>
+            </div>
+            <div class="panel-footer">
+                <input type="submit" class="btn btn-danger" value="Excluir" />
+                <a href="{% url "participant_list" %}" >
+                    <button type="button" class="btn btn-primary">Cancelar</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

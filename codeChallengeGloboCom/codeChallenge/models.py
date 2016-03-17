@@ -6,8 +6,8 @@ import datetime
 
 
 class Contest(models.Model):
-    desc = models.TextField(verbose_name='Descrição', max_length=255, blank=False, null=False)
-    end_date = models.DateTimeField(verbose_name='Data final', null=False, blank=False)
+    desc = models.TextField(verbose_name=u'Descrição', max_length=255, blank=False, null=False)
+    end_date = models.DateTimeField(verbose_name=u'Data final', null=False, blank=False)
 
     def __str__(self):
         return self.desc
@@ -17,8 +17,9 @@ class Contest(models.Model):
 
 
 class Participant(models.Model):
-    name = models.TextField(verbose_name='Nome', max_length=100)
-    contest = models.ForeignKey(Contest)
+    name = models.TextField(verbose_name=u'Nome', max_length=100)
+    contest = models.ForeignKey(Contest, verbose_name=u'Paredão')
+    picture = models.ImageField(verbose_name=u'Imagem', null=False, blank=False, upload_to='Pictures')
 
     def __str__(self):
         return self.name

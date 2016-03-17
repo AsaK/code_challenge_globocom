@@ -1,0 +1,10 @@
+body {
+    font-family: Roboto, SansSerif;
+}
+
+#delete {
+    width: 30px;
+}
+#edit {
+    width: 30px;
+}

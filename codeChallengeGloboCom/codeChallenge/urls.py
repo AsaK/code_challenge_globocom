@@ -30,10 +30,10 @@ urlpatterns = [
     url(r'^participant/pagina/(?P<page>[0-9]+)/$', ListView.as_view(model=Participant, paginate_by=10), name='participant_list'),
 
     url(r'^participant/new$', CreateView.as_view(model=Participant, success_url=reverse_lazy('participant_list'),
-                                                 fields=['name', 'contest']), name='participant_new'),
+                                                 fields=['name', 'contest', 'picture']), name='participant_new'),
 
     url(r'^participant/edit/(?P<pk>\d+)$', UpdateView.as_view(model=Participant, success_url=reverse_lazy('participant_list'),
-                                                              fields=['name', 'contest']), name='participant_edit'),
+                                                              fields=['name', 'contest', 'picture']), name='participant_edit'),
 
     url(r'^participant/delete/(?P<pk>\d+)$', DeleteView.as_view(model=Participant,
                                                                 success_url=reverse_lazy('participant_list')),name='participant_delete'),

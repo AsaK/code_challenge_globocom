@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block Title %}Big Brother Brasil - Paredão{% endblock %}
+{% block ExtraHead %}
+    <link href="{% static 'contest_list.css' %}" rel="stylesheet">
+{% endblock %}
+{% block Conteudo %}
+    <div class="container">
+    <div class="panel panel-default">
+            <div class="panel-heading"><h2>Listar todas informações</h2></div>
+            <form>
+                <div class="panel-body ">
+                        <br>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th id="delete">#</th>
+                                    <th id="edit">#</th>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Inicio</th>
+                                    <th>Encerramento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for Contest in object_list %}
+                                    <tr>
+                                        <td><a href="{% url "contest_delete" Contest.id %}"><span class="fa fa-trash" aria-hidden="true"></span></a></td>
+                                        <td><a href="{% url "contest_edit" Contest.id %}"><span class="fa fa-pencil" aria-hidden="true"></span></a></td>
+                                        <td>{{ Contest.name }}</td>
+                                        <td>{{ Contest.desc }}</td>
+                                        <td>{{ Contest.start_date }}</td>
+                                        <td>{{ Contest.end_date }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% if is_paginated %}
+                        <!-- Paginação -->
+                        <nav class="col-md-offset-5">
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li>
+                                        <a href="{% url "contest_list" page_obj.previous_page_number %}" aria-label="Anterior">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% for Pages in page_obj.paginator.page_range %}
+                                    {% if usersResult.number == Pages %}
+                                        <li class="active"><a>{{ Pages }} <span class="sr-only">(current)</span></a></li>
+                                    {% else %}
+                                        <li><a href="{% url "contest_list" Pages %}">{{ Pages }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li><a href="{% url "contest_list" page_obj.next_page_number %}"> <span aria-hidden="true">&raquo;</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="col-md-pull-1">
+                            <a href="{% url "contest_new" %}" >
+                                <button type="button" class="btn btn-success">Novo Registro</button>
+                            </a>
+                    </div>
+                </div>
+            </form>
+    </div>
+    </div>
+{% endblock Conteudo %}

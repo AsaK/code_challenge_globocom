@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
 {% block Conteudo %}
-    <div class="page-header">
-        <h1> Formulário de entrada de dados <small>Participante</small></h1>
-    </div>
-    <form class="form-horizontal" method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="form-group {% if field.erros %}has-error{% endif %}">
-                <label class="control-label" for="{{ form.auto_id }}">{{ field.label_tag }}</label>
-                    {{ field }}
-                    {% if field.erros %}
-                        <span class="help-block"> {{ field.erros|join:"," }}</span>
-                    {% endif %}
-                    {% if field.help_text %}
-                        <p class="help-tooltip">{{ field.help_text }}</p>
-                    {% endif %}
-            </div>
-        {% endfor %}
-        <div class="form-group">
-            <input type="submit"  class="btn btn-primary" value="Submit" />
-        </div>
-    </form>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1> Formulário de entrada de dados <small>Participantes</small></h1>
+			</div>
+			<div class="panel-body">
+				<form role="form" class="" method="post">
+					{% csrf_token %}
+					{% for field in form %}
+						<div class="control-group {% if field.erros %}has-error{% endif %}">
+							<label class="control-label" for="{{ form.auto_id }}">{{ field.label_tag }}</label>
+								<div class="controls">{{ field }}</div>
+								{% if field.erros %}
+									<span class="help-block"> {{ field.erros|join:"," }}</span>
+								{% endif %}
+								{% if field.help_text %}
+									<p class="help-tooltip">{{ field.help_text }}</p>
+								{% endif %}
+						</div>
+					{% endfor %}
+			</div>
+			<div class="panel-footer">
+				<div class="form-group">
+						<input type="submit"  class="btn btn-primary" value="Criar" />
+				</div>		
+			</div>
+			</form>
+		</div>
+	</div>
 {% endblock %}
