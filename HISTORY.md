@@ -19,7 +19,7 @@
 	onde implementarei o chart.js junto com o que vai resultar da requisição POST, logo após, vou implementar relatórios para 	a equipe
 	de produção saber detalhadamente sobre os votos, após isso iniciarei os testes mais robustos e ajustes finos no layout.
 =====================
-# 14/03/2016 - 09:00 -  (Next Day)01:02
+# 15/03/2016 - 09:00 -  (Next Day)01:02
 	Bom dia, hoje iniciei criando uma página do resultado da votação, resultando o objeto do participante,
 	iniciei a implementação do charts.js para fazer o gráfico de resultado de votação, e fiz alguns ajustes no repositório
 	adicionado um gitIgnore para remover os arquivos de configurações da IDE, também o arquivo do SQLite, após isso, irei desenvolver
@@ -42,6 +42,14 @@
 	conforme solicitado nos requisitos, bom agora foi criado um formulário de autenticação, com algumas validações, criando uma sessão para quem deseja verificar os relatórios de votos,
 	estou implementando o Django Messages Framewok, para responder as mensagens de erros na autenticação do form.
 
-
+=====================
+# 16/03/2016 - 09:00 - 22:00
+	Bom dia, hoje irei refatorar o código prototipo para algo mais organizado e mais limpo, devido algumas mudanças nos 'requisitos' em minha mente, decidi
+	fazer algumas alterações, inicialmente já criei um CRUD basico utilizando as ClassedBasedViews, sem nenhuma linha de código adicional, pode ser feito
+	todas as alterações de estados dos modelos, logo após decidi fazer uma 'galeria' de paredões dinâmicos, onde ele lista todos os paredões, após clicar
+	no paredão especifico, ele lista todos os usuários que estão no paredão, e então poderá ser escolhido um para a votação, foram refatorados todos os 
+	modelos, para algo mais especifico, estou pensando em criar um Modal com um Captcha para quando clicar no participante para votar, o sistema garantir
+	que não está sendo feito por uma máquina, após isso vou desenvolver as telas de Resultados, decidi migrar para o highcharts, por opção de melhor
+	utilização e funcionamento.
 
 	
