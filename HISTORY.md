@@ -51,5 +51,12 @@
 	modelos, para algo mais especifico, estou pensando em criar um Modal com um Captcha para quando clicar no participante para votar, o sistema garantir
 	que não está sendo feito por uma máquina, após isso vou desenvolver as telas de Resultados, decidi migrar para o highcharts, por opção de melhor
 	utilização e funcionamento.
+	
+=====================
+# 22/03/2016 - 09:00 - 01:00
+	Retomando o desenvolvimento, depois de algumas fatalidades pessoais, hoje desenvolvi algumas alterações no html/css/js, decidi criar uma aplicação que carrega dinâmicamente
+	uma galeria de paredões, que dentro do paredão carrega uma galeria de candidatos que estão naquele paredão e não foram eliminados, após isso, implementei um modal com um 
+	reCaptcha pra validar que se trata de um humano que está votando, e agora vou tratar de mostrar os resultados, implementei o reCaptcha, ajustei os templates.
+
 
 	
