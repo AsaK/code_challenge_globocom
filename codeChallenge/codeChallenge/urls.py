@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.conf import settings
+from django.views.static import serve
 # from django.contrib import admin
 
 urlpatterns = [
@@ -22,7 +23,7 @@ urlpatterns = [
     url(r'^contest/', include('contest.urls')),
     url(r'^participant/', include('participant.urls')),
     url(r'^', include('poll.urls')),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
+    url(r'^media/(?P<path>.*)$', serve, {
+        'document_root': settings.MEDIA_ROOT,
         }),
 ]

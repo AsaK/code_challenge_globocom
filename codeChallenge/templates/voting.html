@@ -3,28 +3,80 @@
 {% block Title %}Big Brother Brasil - Votações {% endblock %}
 {% block ExtraHead %}
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    {% if participants %}
+        <script type="text/javascript">
+            var verifyCallback = function(response) {
+                alert("TESTE" + response);
+            };
+            {% for Participant in participants %}
+                var Captcha{{ Participant.id }};
+            {% endfor %}
+            var onloadCallback = function() {
+                {% for Participant in participants %}
+                    Captcha{{ Participant.id }} =  grecaptcha.render('captcha{{ Participant.id }}', {
+                        'sitekey' : '6LdSbxsTAAAAANdSrEVuDX-DehbGfjNIr_weAn-7'
+                    });
+                {% endfor %}
+            };
+        </script>
+    {% endif %}
 {% endblock %}
 {% block Conteudo %}
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Votações do paredão</h1>
-                <h2>Selecione algum participante</h2>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+				<h1> Votação do paredão <small>Selecione quem você deseja eliminar:</small></h1>
+			</div>
+            <div class="panel-body">
+                <div class="row">
+                    {% if participants %}
+                        {% for Participant in participants %}
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+{#                                <a class="thumbnail" style="width:400px; height: 400px; text-align: center;" href="{% url "votar" contest Participant.id %}">#}
+                                <a class="thumbnail" style="width:400px; height: 400px; text-align: center;" data-toggle="modal" data-target="#modalCaptcha{{ Participant.id }}">
+                                    <p>{{ Participant.name }}</p>
+                                    <img class="img-responsive" style="width:400px; height: 300px;"src="{% if Participant.picture %}{{Participant.picture.url}}{% else %}http://placehold.it/400x300{% endif %}" alt="">
+                                    <p>{{ Participant.desc }}</p>
+                                </a>
+                            </div>
+                            <div class="modal fade" id="modalCaptcha{{ Participant.id }}" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Confirmar votação</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Por favor, nos ajude a nos certificar que você não é uma maquina.
+                                                {{ Participant.name }}
+                                            </p>
+                                            <form action="javascript:alert(grecaptcha.getResponse(Captcha{{ Participant.id }}));">
+                                                <div id="captcha{{ Participant.id }}"></div>
+                                                <input type="submit" value="getResponse">
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url "votar" contest Participant.id %}">
+                                                <button class="btn btn-success">Votar</button>
+                                            </a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
-            {% if participants %}
-                {% for Participant in participants %}
-                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                        <a class="thumbnail" style="width:400px; height: 400px; text-align: center;" href="{% url "votar" contest Participant.id %}">
-                            <p>{{ Participant.name }}</p>
-                            <img class="img-responsive" style="width:400px; height: 300px;"src="{% if Participant.picture %}{{Participant.picture.url}}{% else %}http://placehold.it/400x300{% endif %}" alt="">
-                            <p>{{ Participant.desc }}</p>
-                        </a>
-                    </div>
-                {% endfor %}
-            {% endif %}
+            <div class="panel-footer">
+
+            </div>
         </div>
     </div>
 {% endblock %}
 {% block extraScripts %}
     <script src="{% static 'index.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
 {% endblock %}

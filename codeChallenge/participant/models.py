@@ -8,7 +8,7 @@ class Participant(models.Model):
     desc = models.TextField(verbose_name=u'Descrição de votação', blank=True, null=True)
     contest = models.ManyToManyField(Contest, verbose_name=u'Paredão')
     picture = models.ImageField(verbose_name=u'Foto', null=False, blank=False, upload_to='Pictures')
-    active = models.BooleanField(verbose_name=u'Eliminado')
+    active = models.BooleanField(verbose_name=u'Eliminado', default=False)
 
     def __str__(self):
         return self.name
