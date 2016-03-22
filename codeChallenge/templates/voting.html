@@ -5,8 +5,11 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     {% if participants %}
         <script type="text/javascript">
-            var verifyCallback = function(response) {
-                alert("TESTE" + response);
+            var verifyCallback = function(url, response) {
+                if(response.length == 0)
+                    alert('Não verificado')
+                else
+                    window.location.replace(url)
             };
             {% for Participant in participants %}
                 var Captcha{{ Participant.id }};
@@ -51,15 +54,12 @@
                                             <p>Por favor, nos ajude a nos certificar que você não é uma maquina.
                                                 {{ Participant.name }}
                                             </p>
-                                            <form action="javascript:alert(grecaptcha.getResponse(Captcha{{ Participant.id }}));">
+                                            <form action="javascript:verifyCallback('{% url "votar" contest Participant.id %}',grecaptcha.getResponse(Captcha{{ Participant.id }}));">
                                                 <div id="captcha{{ Participant.id }}"></div>
-                                                <input type="submit" value="getResponse">
+                                                <input class="btn btn-success" type="submit" value="Votar">
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{% url "votar" contest Participant.id %}">
-                                                <button class="btn btn-success">Votar</button>
-                                            </a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                         </div>
                                     </div>

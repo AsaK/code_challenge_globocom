@@ -1,9 +1,7 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from contest.models import Contest
 from participant.models import Participant
 from django.utils import timezone
-import datetime
 # Create your views here.
 
 
@@ -23,6 +21,7 @@ class VotingView(TemplateView):
         context['contest'] = self.kwargs['pk']
         return context
 
+
 class VoteView(VotingView):
 
     def get_context_data(self, **kwargs):
@@ -35,5 +34,8 @@ class VoteView(VotingView):
         paredao = Contest.objects.get(pk=contest)
         brother.vote_set.create(contest=paredao, vote_date=timezone.now())
         brother.save()
+
+    def voteResult(self):
+        
 
 
