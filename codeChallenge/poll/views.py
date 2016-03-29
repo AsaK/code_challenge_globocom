@@ -35,7 +35,4 @@ class VoteView(VotingView):
         brother.vote_set.create(contest=paredao, vote_date=timezone.now())
         brother.save()
 
-    def voteResult(self):
-        
-
 

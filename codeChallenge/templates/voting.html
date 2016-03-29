@@ -6,9 +6,7 @@
     {% if participants %}
         <script type="text/javascript">
             var verifyCallback = function(url, response) {
-                if(response.length == 0)
-                    alert('Não verificado')
-                else
+                if(response.length != 0)
                     window.location.replace(url)
             };
             {% for Participant in participants %}
